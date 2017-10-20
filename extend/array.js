@@ -1,29 +1,38 @@
 //扩展运算符...
 var array1 = [1,2,3]
 console.log(...array1)//1,2,3
+
 //主要用于函数调用
 function add(x,y,z) {
     return x+y+z
 }
 add(...array1); // 6
+
 //扩展运算符后面还可以放置表达式。
 console.log(...[...(1>0?['a']:[]),'b'])//a,b
+
 //扩展运算符应用
 let arr = [4,5,6]
 //es5
 add.apply(null,arr)//15
 //es6
 add(...arr)//15
+
 //将一个数组添加到另一个数组的尾部。
+
 array1.push(...arr)//[ 1, 2, 3, 4, 5, 6 ]
+
 //复制数组
 let arr2 = [...arr]//[4,5,6]
+
 //合并数组
 let array2 = [...array1,...arr]//[ 1, 2, 3, 4, 5, 6 ]
 //如果将扩展运算符用于数组赋值，只能放在参数的最后一位，否则会报错
+
 const [first, ...rest] = [1, 2, 3, 4, 5];
 first // 1
 rest  // [2, 3, 4, 5]
+
 //const [...rest,first ] = [1, 2, 3, 4, 5];//报错
 //字符串
 console.log([...'hello'])//[ "h", "e", "l", "l", "o" ]
@@ -71,7 +80,9 @@ Array.from({ length: 3 });
 
 //Array.from还可以接受第二个参数，作用类似于数组的map方法，用来对每个元素进行处理，将处理后的值放入返回的数组。
 let arrayLike = [1, 2, 3]
+
 Array.from(arrayLike, x => x * x);
+
 // 等同于
 Array.from(arrayLike).map(x => x * x);
 
@@ -88,8 +99,9 @@ Array.of('a','b','c')//['a','b','c']
 
 //数组实例的 find() 和 findIndex()
     [1, 5, 10, 15].find(function(value, index, arr) {//value值，index当前位置，arr原数组
+    
     return value > 9;
-}) // 10  findIndex返回位置，为2
+}) // 10  findIndex方法返回位置，为2
 
 //fill方法使用给定值，填充一个数组
     ['a', 'b', 'c'].fill(7, 1, 2)
@@ -97,18 +109,21 @@ Array.of('a','b','c')//['a','b','c']
 
 //数组实例的 entries()，keys() 和 values()
 for (let index of ['a', 'b'].keys()) {
+    
     console.log(index);
 }//对健名的遍历
 // 0
 // 1
 
 for (let elem of ['a', 'b'].values()) {
+    
     console.log(elem);
 }//对键值的遍历
 // 'a'
 // 'b'
 
 for (let [index, elem] of ['a', 'b'].entries()) {
+    
     console.log(index, elem);
 }//对键值对的遍历
 // 0 "a"
@@ -116,5 +131,6 @@ for (let [index, elem] of ['a', 'b'].entries()) {
 
 //Array.prototype.includes方法返回一个布尔值，表示某个数组是否包含给定的值
 array1.includes(1)//true
+
 
 //ES6 则是明确将空位转为undefined。
