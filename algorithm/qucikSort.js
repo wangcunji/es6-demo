@@ -20,5 +20,6 @@ function quickSort(arr){
 }
 
 let sortarr = [13,43,23,41,53,64,23,53,5,23,54,21,87,65,56,85]
+console.log(sortarr.sort())
 console.log(quickSort(sortarr))
 
