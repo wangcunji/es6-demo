@@ -32,4 +32,4 @@ var findMval = function (arr1,arr2,index2,index1,len1,len2,k) {
 var arr = [1,3];
 var ss = arr.splice(arr.length/2,2)
 // console.log(ss)
-console.log(findMedianSortedArrays([1,3,4,5],[1,2,6,7]))1,1,2,3,4,5,6,7
+console.log(findMedianSortedArrays([1,3,4,5],[1,2,6,7]))

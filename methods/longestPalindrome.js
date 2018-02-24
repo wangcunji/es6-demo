@@ -1,42 +1,41 @@
+var strlen = 0,j,k;
 var longestPalindrome = function(s) {
-    let str = s,result,substr,strlen = [],obj = {},count=0;
-    let arr = str.split("");
-    let len = arr.length;
-    let l = 0,k=0;
+    let str = s,str1,str2,maxLen = 0,strlen = 0,j,k,x,y,m,n,start,end;
+    let len = str.length;
     if(len<2) return str;
-    for(let i=0;i<len-1;){
-        substr = str.substring(l+1);
-        k = substr.indexOf(arr[i]);
-        console.log(substr)
-        if(k!==-1){
-            l = k+len-substr.length;
-            let str1 = str.substring(i,l+1);
-            let str2 = str1.split("").reverse().join("");
-            if(str1===str2){
-                strlen.push(str1.length);
-                if(!obj[str1.length]){
-                    obj[str1.length] = str1
-                };
+    for(let i=0;i<len;i++){
+        x = i;
+        y = i;
+        while (x>=0&&y<len&&str.charAt(x)===str.charAt(y)){
+            x--;
+            y++;
+        };
+        if(str.charAt(i)===str.charAt(i+1)){
+            j = i;
+            k = i+1;
+            while (j>=0&&k<len&&str.charAt(j)===str.charAt(k)){
+                j--;
+                k++;
             };
+        };
+        if(k-j>=y-x){
+            n = j;
+            m = k;
         } else {
-            i++;
-            l=i;
+            n = x;
+            m = y;
+        };
+        if(strlen<m-n-1){
+            start = n+1;
+            end = m;
+            strlen = m-n-1;
         }
     };
-    strlen.sort(function (a,b) {
-        return a-b
-    });
-    console.log(obj)
-    if(!obj[strlen[strlen.length-1]]){
-        result = str.substring(0,1)
-    } else {
-        result = obj[strlen[strlen.length-1]]
-    }
-    return result;
+    return str.substring(start,end)
 };
 let ss = "zudfweormatjycujjirzjpyrmaxurectxrtqedmmgergwdvjmjtstdhcihacqnothgttgqfywcpgnuvwglvfiuxteopoyizgehkwuvvkqxbnufkcbodlhdmbqyghkojrgokpwdhtdrwmvdegwycecrgjvuexlguayzcammupgeskrvpthrmwqaqsdcgycdupykppiyhwzwcplivjnnvwhqkkxildtyjltklcokcrgqnnwzzeuqioyahqpuskkpbxhvzvqyhlegmoviogzwuiqahiouhnecjwysmtarjjdjqdrkljawzasriouuiqkcwwqsxifbndjmyprdozhwaoibpqrthpcjphgsfbeqrqqoqiqqdicvybzxhklehzzapbvcyleljawowluqgxxwlrymzojshlwkmzwpixgfjljkmwdtjeabgyrpbqyyykmoaqdambpkyyvukalbrzoyoufjqeftniddsfqnilxlplselqatdgjziphvrbokofvuerpsvqmzakbyzxtxvyanvjpfyvyiivqusfrsufjanmfibgrkwtiuoykiavpbqeyfsuteuxxjiyxvlvgmehycdvxdorpepmsinvmyzeqeiikajopqedyopirmhymozernxzaueljjrhcsofwyddkpnvcvzixdjknikyhzmstvbducjcoyoeoaqruuewclzqqqxzpgykrkygxnmlsrjudoaejxkipkgmcoqtxhelvsizgdwdyjwuumazxfstoaxeqqxoqezakdqjwpkrbldpcbbxexquqrznavcrprnydufsidakvrpuzgfisdxreldbqfizngtrilnbqboxwmwienlkmmiuifrvytukcqcpeqdwwucymgvyrektsnfijdcdoawbcwkkjkqwzffnuqituihjaklvthulmcjrhqcyzvekzqlxgddjoir"
 
-let tt = "aptionoranynartionsoc"
+let tt = "apation"
 // console.log('babadadsc'.substring(1,4),'babadadsc'.substring(4))
-
-console.log(longestPalindrome("babad"))
+// console.log(tt.substring(0,3))
+console.log(longestPalindrome('cbbbd'))

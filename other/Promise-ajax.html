@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>ajax请求与es6-Promise</title>
+    <script src="http://www.jq22.com/jquery/jquery-2.1.1.js"></script>
+</head>
+
+<body>
+    <div>
+        <button id="btn">数据测试</button>
+    </div>
+    <script type="module">
+        import { passData } from "./Promise-ajax.js"; 
+
+        $(function () { 
+            $("#btn").click(function () { 
+                console.log(passData);
+                let xhrData = new passData();
+                xhrData.sayName();
+                let listParams = {
+                    baseEntId:"59dea301-a9c1-4511-bb0e-d801af7aa2df",
+                    baseUserId:"b18fd6e8-0b7a-420e-b8cd-913a9b727954",
+                    listType:2,
+                    bizOrderType:'',
+                    isReceipt: '',
+                    receiptStatus:'',
+                    consignTimeStart:'',
+                    consignTimeEnd:'',
+                    originCity:'',
+                    destinationCity:'',
+                    sender:'',
+                    senderCall:'',
+                    receivePersonName:'',
+                    receiveCall:'',
+                    consignOrderNum:'',
+                    goodsNumber:'',
+                    pageSize:10,
+                    pageIndex:1,
+                };
+                let url = "http://172.19.1.248:2020/bizorder/biz/order/receipt/getConsignOrderReceiptList.htm";
+                xhrData.postData(url,listParams)
+                .then(res => {
+                    console.log('请求数据成功');
+                    console.log(res);
+                })
+            }) 
+        })
+    </script>
+</body>
+
+</html>
