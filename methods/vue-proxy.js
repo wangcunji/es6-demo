@@ -1,3 +1,4 @@
+/*jshint esversion: 6 */
 var VM = {
     data(){
         return {
@@ -5,10 +6,10 @@ var VM = {
         }
     },
     el:'#id'
-}
+};
 
 function proxy(VM,key) {
-    Object.defineProperty(VM,key,{
+    Reflect.defineProperty(VM,key,{
         configurable: true,
         enumerable: true,
         get:function () {
@@ -17,18 +18,18 @@ function proxy(VM,key) {
         set:function (value) {
             VM._data[key] = value;
         }
-    })
+    });
 }
 if(VM['data']){
-    let data_ = VM['data']()
-    VM['_data'] = data_
+    let data_ = VM['data']();
+    VM['_data'] = data_;
     // console.log(data_)
     for(var key in VM['_data']){
-        proxy(VM,key)
+        proxy(VM,key);
     }
 } else {
-    throw new Error('this is undefined')
+    throw new Error('this is undefined');
 }
-console.log(VM.name)
-VM.name = 'newValue'
-console.log(VM.name)
+console.log(VM.name);
+VM.name = 'newValue';
+console.log(VM.name);
