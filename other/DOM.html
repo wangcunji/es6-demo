@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="UTF-8" />
+    </head>
+    <body>
+        <div id="div1" class="div">第一层<div class="div-n">展示</div></div>
+        <div id="div2">第二</div>
+        <div id="div3"></div>
+        <script>
+            var node1 = document.getElementById("div1").childNodes,ren1 = document.getElementById("div1").children;
+            console.log(node1);
+            console.log(ren1);
+            console.log(ren1.nodeType==Node.ELEMENT_NODE);
+            console.log(document.getElementById("div1"));
+            document.getElementById("div1").setAttribute("style","overflow:hidden");
+            node1.setAttribute("style","overflow:hidden");
+        </script>
+    </body>
+</html>

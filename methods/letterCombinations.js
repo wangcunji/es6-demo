@@ -30,6 +30,3 @@ var letterCombinations = function(digits) {
 };
 
 console.log(letterCombinations("234"))
-// var arr = [1,2,3,4,5,6];
-// arr.shift(4)
-// console.log(arr)
