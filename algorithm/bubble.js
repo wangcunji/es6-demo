@@ -37,7 +37,7 @@ function insertSort(arr){
           
             arr[i+1] = arr[i];
             i --;
-        }
+        };
         arr[i + 1] = key;
     }
 

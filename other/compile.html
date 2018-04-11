@@ -6,7 +6,7 @@
     <body>
         <div id="test" class="title_info" onclick="clickT()">
             测试节点
-            <span>有新的呢</span>
+            <span class="zzhess">有新的呢</span>
         </div>
         <div id="newEl">有数据呢</div>
         <button onclick="startCompile()">点击进行编译</button>
@@ -17,6 +17,7 @@
                 var $frag = thisCompile.node2Fragment(ele);
                 console.log(ele);
                 console.log($frag);
+                console.log($frag.childNodes);
                 $frag.appendChild(ele1);
                 console.log(ele.firstChild);
             };
