@@ -67,6 +67,6 @@ let intstr = 'barfoothefoobarman'
 let str  ="barfoofoobarthefoobarman",arr  =["bar","foo","the"];
 let tr = "wordgoodgoodgoodbestword",ar=["word","good","best","good"];
 let ntr = "foobarfoobar",nar = ["foo","bar"]
-console.log(findSubstring(tr,ar))
+console.log(findSubstring(ntr,nar))
 
 // console.log([].concat([4,5]))
