@@ -1,16 +1,11 @@
-/**
- * Definition for singly-linked list.
- * function ListNode(val) {
- *     this.val = val;
- *     this.next = null;
- * }  反串列表
- */
+// 判断回文链表
 
 function ListNode(val) {
     this.val = val;
     this.next = null;
 }
-var reverseList = function (head) {
+
+var isPalindrome = function (head) {
     let node = new ListNode(0),
         headNode = head;
     let tempNode;
@@ -20,11 +15,21 @@ var reverseList = function (head) {
         node.next.next = tempNode;
         headNode = headNode.next;
     };
-    return node.next
+    let result = node.next;
+    headNode = head;
+    while (headNode){
+        if(headNode.val!==result.val){
+            return false;
+        };
+        headNode = headNode.next;
+        result = result.next;
+    };
+    return true
 };
 
 var head = new ListNode(1);
 head.next = new ListNode(2);
 
+console.log(isPalindrome(head))
 
-console.log(reverseList(head))
+

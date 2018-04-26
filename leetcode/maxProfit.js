@@ -1,20 +1,24 @@
 var maxProfit = function(prices) {
-    let len = prices.length;
+    let len = prices.length,count = 0;
     if(len<=1) return 0;
-    let result = calcMax(prices,0);
+    let num = prices[0],temp;
+    for(var i=0;i<len;i++){
+        if(prices[i]>num){
+            temp = prices[i] - num;
+            count+=temp;
+        }
+        num = prices[i];
+    }
+    return count;
 };
 
-var calcMax = function(prices,count){
-    let len = prices.length,result = count;
-    if(len<=1) return 0;
-    let minVal = prices[0],maxVal = prices[0]
-    prices.forEach((item,index) => {
-        if(item<minVal){
-            minVal = item;
-        };
-        if(item>minVal){
-            maxVal = item;
-        };
-    });
 
-}
+var prices = [1,2,3,4,5];
+
+
+
+
+console.log(maxProfit([6,1,3,2,4,7]))
+
+
+
