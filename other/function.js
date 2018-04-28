@@ -20,7 +20,7 @@
 
 // f(1,2);
 
-console.log(foo)
+// console.log(foo)
 
 var foo = 1
 
