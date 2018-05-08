@@ -21,12 +21,14 @@
 
     </div>
     <button id="btn">点击插入</button>
+    <div data-name='这是什么啊' class="dataTest">
+        数据测试
+    </div>
     <script>
-        $("#btn").click(function () {
-            $("#container").animate({
-                right: 0
-            }, 2000);
-            $.get("content.html", function (res) {
+        $("#btn").click(function() {
+            console.log($('.dataTest').data('name'));
+            $('.dataTest').hide();
+            $.get("content.html", function(res) {
                 console.log("获取到的数据");
                 console.log(res)
                 $("#container").append(res)

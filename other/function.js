@@ -1,26 +1,27 @@
-// console.log(a);
+console.log(a);
 
-// var a = function(){
-//     console.log('a');
-// }
+var a = function() {
+    console.log('a');
+}
 
-// b();
+b();
 
-// function b(){
-//     console.log('b');
-// }
+function b() {
+    console.log('b');
+}
 
-// function f(a,b){
-//     console.log(a);
-//     console.log(b);
+function f(a, b) {
+    console.log(a);
+    console.log(b);
 
-//     var b = 100;
-//     function a(){};
-// }
+    var b = 100;
 
-// f(1,2);
+    function a() {};
+}
 
-// console.log(foo)
+f(1, 2);
+
+console.log(foo)
 
 var foo = 1
 
