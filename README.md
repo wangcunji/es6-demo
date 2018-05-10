@@ -1,3 +1,2 @@
 # es6-demo
-es6
-根据阮一峰老师的《ECMAScript 6 入门》来学习es6
+学习es6时练手以及在leetcode上刷题写的demo

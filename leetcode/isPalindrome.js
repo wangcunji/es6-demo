@@ -10,6 +10,7 @@ var isPalindrome = function(x) {
     };
     while (x>0){
         if(Math.floor(x / len)===x % 10){
+            console.log(x)
             x = (x%len - x%10)/10;
             len/=100;
         } else {
@@ -18,4 +19,4 @@ var isPalindrome = function(x) {
     }
     return true
 };
-console.log(isPalindrome(1002001))
+console.log(isPalindrome(1012101))

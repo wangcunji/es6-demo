@@ -1,0 +1,40 @@
+<html !DOCTYPE>
+
+<head>
+    <meta charset="UTF-8">
+    <title>获取html并插入</title>
+    <script src="http://www.jq22.com/jquery/jquery-2.1.1.js"></script>
+    <style>
+        #container {
+            width: 400px;
+            height: calc(100% - 80px);
+            position: absolute;
+            bottom: 0;
+            background-color: #f2f2f2;
+            right: -400px
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+
+    </div>
+    <button id="btn">点击插入</button>
+    <div data-name='这是什么啊' class="dataTest">
+        数据测试
+    </div>
+    <script>
+        $("#btn").click(function() {
+            console.log($('.dataTest').data('name'));
+            $('.dataTest').hide();
+            $.get("content.html", function(res) {
+                console.log("获取到的数据");
+                console.log(res)
+                $("#container").append(res)
+            })
+        })
+    </script>
+</body>
+
+</html>
