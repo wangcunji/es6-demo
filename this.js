@@ -6,6 +6,8 @@ function f1() {
         let name = 'Milk'
         console.log(name)
     }
-}
+};
 f1.prototype.sayName()
 console.log(name)
+
+

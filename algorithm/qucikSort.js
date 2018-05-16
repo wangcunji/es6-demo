@@ -16,7 +16,8 @@ function quickSort(arr){
         } else {
             rightArr.push(arr[i]);
         }
-    }
+    };
+    
     return [...quickSort(leftArr),value,...quickSort(rightArr)];
 }
 
