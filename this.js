@@ -8,6 +8,7 @@ function f1() {
     }
 };
 f1.prototype.sayName()
+
 console.log(name)
 
 

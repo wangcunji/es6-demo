@@ -6,7 +6,7 @@ function quickSort(arr){
     
     let index = Math.floor(arr.length / 2);
 
-    let value = arr.splice(index,1)[0];
+    let value = arr[index];
 
     let leftArr = [],rightArr = [];
     
@@ -26,6 +26,10 @@ let sortarr = [13,43,23,41,53,64,23,5,53,23,54,21,87,65,56,85];
 let newArr = quickSort(sortarr)
 
 console.log(newArr)
+
+//维基百科上的快速排序方式
+
+let 
 
 
 
