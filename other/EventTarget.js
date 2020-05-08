@@ -56,6 +56,7 @@ target.fire({
 });
 // 删除事件处理程序
 target.removeHandler("message",handleMessage);
+
 // 再次触发，应该没有处理程序
 target.fire({
     type:"message",

@@ -1,0 +1,52 @@
+<html>
+    <head>
+        <title>遍历DOM节点</title>
+    </head>
+    <style>
+        .line{
+            width: 250px;
+            font-size: 18px;
+            text-align: center;
+        }
+    </style>
+    <body>
+        <div id="box">
+            <div class="line" onclick="getelInfo()">第一行啊</div>
+        </div>
+        <canvas id="canvas"></canvas>
+        <script>
+            let canvas = document.getElementById('canvas');
+            let ctx = canvas.getContext('2d');
+            function traverse(el) {
+                if (!(el instanceof HTMLElement) || el.nodeType !== 1) {
+                    throw('参数类型不正确');
+                    return;
+                }
+                if (el.textContent) {
+                    let x = el.offsetLeft;
+                    let y = el.offsetTop;
+                    let w = el.clientWidth;
+                    let h = el.clientHeight;
+                    let style = getStyle(el);
+                    ctx.font = style.fontSize;
+                    ctx.textAlign = style.textAlign;
+                    ctx.strokeText(el.textContent, x, y);
+                }
+                for (let i = 0; i < el.children; i++) {
+                    traverse(el.children[i]);
+                }
+            }
+            function getStyle(el) {
+                return window.getComputedStyle(el, null)
+            }
+            function getelInfo() {
+                let e = event || e;
+                console.log(e);
+                console.log(window.getComputedStyle(e.target, 'text-align'))
+                // console.log('a');
+            }
+            let el = document.getElementById('box')
+            traverse(el);
+        </script>
+    </body>
+</html>

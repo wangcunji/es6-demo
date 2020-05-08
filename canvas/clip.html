@@ -1,0 +1,81 @@
+<html>
+
+<head>
+    <title>裁剪区域</title>
+</head>
+
+<body>
+    <canvas id="canvas"></canvas>
+    <script>
+        function drawStar(ctx, r) {
+            ctx.save();
+            ctx.beginPath()
+            ctx.moveTo(r, 0);
+            for (var i = 0; i < 9; i++) {
+                ctx.rotate(Math.PI / 5);
+                if (i % 2 == 0) {
+                    ctx.lineTo((r / 0.525731) * 0.200811, 0);
+                } else {
+                    ctx.lineTo(r, 0);
+                }
+            }
+            ctx.closePath();
+            ctx.fill();
+            ctx.restore();
+        }
+
+        function draw() {
+            var ctx = document.getElementById('canvas').getContext('2d');
+            ctx.fillRect(0, 0, 150, 150);
+            ctx.translate(75, 75);
+
+            // Create a circular clipping path
+            ctx.beginPath();
+            ctx.arc(0, 0, 60, 0, Math.PI * 2, true);
+            ctx.clip();
+
+            // draw background
+            var lingrad = ctx.createLinearGradient(0, -75, 0, 75);
+            lingrad.addColorStop(0, '#232256');
+            lingrad.addColorStop(1, '#143778');
+
+            ctx.fillStyle = lingrad;
+            ctx.fillRect(-75, -75, 150, 150);
+
+            // draw stars
+            for (var j = 1; j < 50; j++) {
+                ctx.save();
+                ctx.fillStyle = '#fff';
+                ctx.translate(75 - Math.floor(Math.random() * 150),
+                    75 - Math.floor(Math.random() * 150));
+                drawStar(ctx, Math.floor(Math.random() * 4) + 2);
+                ctx.restore();
+            }
+
+        }
+
+        function drawRectangle() {
+            var ctx = document.getElementById('canvas').getContext('2d');
+
+            ctx.fillRect(0, 0, 150, 150); // 使用默认设置绘制一个矩形
+            ctx.save(); // 保存默认状态
+
+            ctx.fillStyle = '#09F' // 在原有配置基础上对颜色做改变
+            ctx.fillRect(15, 15, 120, 120); // 使用新的设置绘制一个矩形
+
+            ctx.save(); // 保存当前状态
+            ctx.fillStyle = '#FFF' // 再次改变颜色配置
+            ctx.globalAlpha = 0.5;
+            ctx.fillRect(30, 30, 90, 90); // 使用新的配置绘制一个矩形
+
+            // ctx.restore(); // 重新加载之前的颜色状态
+            ctx.fillRect(45, 45, 60, 60); // 使用上一次的配置绘制一个矩形
+
+            ctx.restore(); // 加载默认颜色配置
+            ctx.fillRect(60, 60, 30, 30); // 使用加载的配置绘制一个矩形
+        }
+        drawRectangle();
+    </script>
+</body>
+
+</html>

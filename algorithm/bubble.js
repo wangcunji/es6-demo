@@ -8,13 +8,20 @@ function  Bubble(num){
 
     var len = num.length;
 
-    for(var i=0;i<len-1;i++){
-        for(let l=i+1;l<len;l++){
-            if(num[i]>num[l]){
+    for(var i=0;i < len-1; i++){
+
+        for(let l=i + 1;l < len; l++){
+
+            if(num[i] > num[l]){
+
                 first = num[i];
+
                 num[i] = num[l];
+                
                 num[l] = first;
+
             }
+
         }
         
     }

@@ -1,4 +1,7 @@
 // 二叉树的层次遍历
+/**
+ * 给你一个二叉树，请你返回其按 层序遍历 得到的节点值。 （即逐层地，从左到右访问所有节点）。
+ */
 
 function TreeNode(val) {
     this.val = val;
@@ -34,7 +37,7 @@ var levelOrder = function(root) {
     return result;
 };
 
-var node = new TreeNode(1)
+var node = new TreeNode(1);
 
 node.left = new TreeNode(2);
 node.right = new TreeNode(2);
@@ -61,7 +64,7 @@ var levelOrder = function (root) {
     function levelOrderUtil(node,result,level){
         if(!node) return;
         let list;
-        if(result.length===0||result.length-1<level){
+        if (result.length === 0 || result.length - 1 < level) {
             list = [];
             list.push(node.val);
             result.push(list);
