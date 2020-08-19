@@ -17,6 +17,4 @@ function selectSort(arr) {
 
 let newa = selectSort([14, 2, 6, 3, 1, 4, 9, 53, 9]);
 
-console.log(newa)
-
-
+console.log(selectSort(newa));

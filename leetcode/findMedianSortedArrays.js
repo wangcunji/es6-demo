@@ -1,35 +1,30 @@
+/**
+ * 4. 寻找两个正序数组的中位数
+ * 给定两个大小为 m 和 n 的正序（从小到大）数组 nums1 和 nums2。
+ * 请你找出这两个正序数组的中位数，并且要求算法的时间复杂度为 O(log(m + n))。
+ * 你可以假设 nums1 和 nums2 不会同时为空。
+ */
+
+
+/**
+ * @param {number[]} nums1
+ * @param {number[]} nums2
+ * @return {number}
+ */
+// 两个数组合并成一个，然后求该数组的中位数
+// var findMedianSortedArrays = function(nums1, nums2) {
+//     const arr = [...nums1, ...nums2].sort((a, b) => a - b);
+//     const length  = arr.length;
+//     return length % 2 !== 0 ? arr[Math.floor(length / 2)] : (arr[length / 2] + arr[length / 2 - 1]) / 2;
+// };
 var findMedianSortedArrays = function(nums1, nums2) {
-    let len1 = nums1.length,len2 = nums2.length;
-    let k = Math.floor((len1+len2)/2);
-    if((len1+len2) % 2===0){
-        return (findMval(nums1,nums2,0,0,len1,len2,k)+findMval(nums1,nums2,0,0,len1,len2,k+1))/2
-    } else {
-        return findMval(nums1,nums2,0,0,len1,len2,k+1)
-    }
+    const len1 = nums1.length;
+    const len2 = nums2.length;
+    const allLen = len1 + len2;
 };
-var findMval = function (arr1,arr2,index2,index1,len1,len2,k) {
-    if(len1>len2){
-        return findMval(arr2,arr1,index2,index1,len2,len1,k)
-    };
-    if(len1===0){
-        return arr2[k+index2-1]
-    };
-    if(k===1){
-        return Math.min(arr1[index1],arr2[index2])
-    };
-    let l1 = Math.min(Math.floor(k/2),len1);
-    let l2 = k - l1;
-    console.log(l1,l2)
-    if(arr1[index1+l1-1]<arr2[index2+l2-1]){
-        return findMval(arr1,arr2,index1+l1,index2, len1-l1,len2,k-l1)
-    } else if(arr1[index1+l1-1]>arr2[index2+l2-1]){
-        return findMval(arr1,arr2,index1,index2+l2, len1,len2-l2,k-l2)
-    } else {
-        console.log(index1+l1-1)
-        return arr1[index1+l1-1]
-    }
-};
-var arr = [1,3];
-var ss = arr.splice(arr.length/2,2)
-// console.log(ss)
-console.log(findMedianSortedArrays([1,3,4,5],[1,2,6,7]))
+
+let nums1 = [3];
+let nums2 = [1, 9];
+
+// console.log(findMedianSortedArrays([1,3,4,5],[1,2,6,7]))
+console.log(findMedianSortedArrays(nums1, nums2));

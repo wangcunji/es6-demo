@@ -1,7 +1,8 @@
-var isMatch = function(s, p) {
-    let str1 = s,str2 = p;
-    if(str1.length>str2.length){
-        return false
-    };
+/**
+ * @param {string} s
+ * @param {string} p
+ * @return {boolean}
+ */
+var isMatch = function (s, p) {
     
 };

@@ -11,4 +11,5 @@ f1.prototype.sayName()
 
 console.log(name)
 
+let a = 
 

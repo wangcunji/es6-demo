@@ -1,11 +1,10 @@
-let sarr = [5,4,3]
+let sarr = [5,4,3,8,6,45,8,1,85,23,34];
 function insertSort(arr){
 
     var key;
 
     for(let j = 1; j < arr.length ; j++){
         
-
         var i = j - 1;
 
         key = arr[j];
@@ -19,7 +18,7 @@ function insertSort(arr){
     }
 
     return arr;
-
 }
+
 console.log(insertSort(num));
 
