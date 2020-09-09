@@ -1,4 +1,5 @@
 
+function person() {}
 
 // 寄生式继承是和原型式继承紧密相关的思路
 
@@ -21,4 +22,3 @@ var anotherPerson = createAnother(person);
 anotherPerson.sayHi();
 
 // 存在的问题：使用寄生式继承来为对象添加函数，会由于不能做到函数复用而降低效率；这一点与构造函数模式类似
-
