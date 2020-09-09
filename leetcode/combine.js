@@ -7,6 +7,7 @@
  * @param {number} n
  * @param {number} k
  * @return {number[][]}
+ * 回溯
  */
 var combine = function (n, k) {
     const res = [];
@@ -18,8 +19,8 @@ var combine = function (n, k) {
         }
         for (let i = start; i <= n; i++) { // 枚举出所有选择
             path.push(i); // 选择
-            helper(i + 1, path); // 向下继续选择
-            path.pop(); // 撤销选择
+            helper(i + 1, path); // 向下继续选择，当i超出时，不会再向path添加数据，这时pop出的就是上一个添加的数据
+            path.pop(); // 撤销选择--回溯
         }
     };
 
@@ -27,5 +28,5 @@ var combine = function (n, k) {
     return res;
 };
 
-console.log(combine(4, 2));
+console.log(combine(4, 3));
 
