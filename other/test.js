@@ -1,41 +1,17 @@
-var foo = {name:1};
-var bar = foo;
-// foo.x = foo = {name:2};
-foo.x = {name:2};
-foo = {name:2};
-console.log(foo,bar,foo.x,bar.x);
-
-var a = 1;
-b = a = 2;
-console.log(a,b)
-
-var t = 20, r=10,str = '30';
-console.log(t+r+str)
-
-var f1 = "Hellow";
-(function(){
-    var f2 = "World";
-    console.log(f1+f2);
-})()
-
-// console.log(f1+f2)
-
-for (let elem of ['a', 'b']) {
-    setTimeout(function(){
-        console.log(elem);
-    },2000)
+Array.prototype.myReduce = function (fn, prev) {
+    for (let i = 0; i < this.length; i++) {
+        if (typeof prev === 'undefined') {
+            prev = fn(this[i], this[i + 1]);
+            ++i;
+        } else {
+            prev = fn(prev, this[i]);
+        }
+    }
+    return prev;
 }
 
-function source(){
-    this.name = "Job";
-    this.sayName = function (){
-        console.log(this.name);
-    }
-};
+let sum = [1, 2, 3, 4, 5].myReduce((prev, next) => {
+    return prev + next;
+})
 
-var exp = new source();
-
-console.dir(exp);
-
-
-
+console.log('sum', sum);
