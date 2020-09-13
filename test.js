@@ -1,28 +1,45 @@
-let result = Infinity;
-var minPathSum = function (grid) {
-    const wide = grid.length;
-    if (wide === 0) return 0;
-    const length = grid[0].length;
-    result = Infinity;
-    calcPath(grid, 0, 0, wide, length, 0);
-    return result;
-};
+// var cat = {
+//     say() {
+//         console.log("meow~");
+//     },
+//     jump() {
+//         console.log("jump");
+//     }
+// }
+// var tiger = Object.create(cat, {
+//     say: {
+//         writable: true,
+//         configurable: true,
+//         enumerable: true,
+//         value: function () {
+//             console.log("roar!");
+//         }
+//     }
+// }) 
 
-function calcPath(grid, x, y, wide, length, count) {
-    if (x < length && y < wide) {
-        count += grid[y][x];
-    }
-    if (x === length - 1 && y === wide - 1 && count < result) {
-        result = count;
-    }
-    if (x < length && count < result) {
-        calcPath(grid, x + 1, y, wide, length, count);
-    }
-    if (y < wide && count < result) {
-        calcPath(grid, x, y + 1, wide, length, count);
-    }
-}
+// var anotherCat = Object.create(cat);
 
-let c = [[1]];
+// anotherCat.say();
 
-console.log(minPathSum(c));
+// var anotherTiger = Object.create(tiger);
+
+// anotherTiger.say();
+
+// var o = new Object;
+// var n = new Number;
+// var s = new String;
+// var b = new Boolean;
+// var d = new Date;
+// var arg = function () {
+//     return arguments
+// }();
+// var r = new RegExp;
+// var f = new Function;
+// var arr = new Array;
+// var e = new Error;
+// console.log([o, n, s, b, d, arg, r, f, arr, e].map(v => Object.prototype.toString.call(v)));
+console.log([
+    [1, 2]
+].includes([1, 2]))
+console.log([1, 2].includes(2))
+
