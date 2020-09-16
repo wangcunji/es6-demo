@@ -42,7 +42,6 @@ var averageOfLevels = function (root) {
         }
     }
     helper(root, 0);
-    console.log(obj);
     for (let key in obj) {
         const num = obj[key].num;
         const len = obj[key].len;
