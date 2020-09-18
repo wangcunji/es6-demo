@@ -28,7 +28,7 @@ console.log(maxMoney([2, 0, 0, 4, 5, 6]));
 // console.log(1 / +0, 1 / -0, 1 / +0 === 1 / -0);
 // console.log(0 === -0);
 // console.log(Object.is(+0, -0))
-console.log(Object.is(NaN, NaN))
+console.log(Object.is({}, {}));
 console.log(NaN === NaN);
 // if (!Object.is) {
 //     Object.is = function (x, y) {
@@ -42,3 +42,8 @@ console.log(NaN === NaN);
 //         }
 //     };
 // }
+let n = new String();
+n += 'a';
+console.log(n);
+
+
