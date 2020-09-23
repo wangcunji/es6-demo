@@ -18,11 +18,11 @@ var subsets = function (nums) {
             return;
         }
         t.push(nums[cur]);
-        helper(cur + 1, nums);
+        helper(cur + 1);
         t.pop(t.length - 1);
-        helper(cur + 1, nums);
+        helper(cur + 1);
     }
-    helper(0, nums);
+    helper(0);
     return ans;
 };
 
