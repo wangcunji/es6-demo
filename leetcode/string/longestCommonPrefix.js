@@ -1,3 +1,7 @@
+/**
+ * 最长公共前缀
+ * https: //leetcode-cn.com/explore/interview/card/bytedance/242/string/1014/   
+ */
 var longestCommonPrefix = function(strs) {
     let str = strs[0],len = strs.length,result = "";
     if(len===0) return result;
