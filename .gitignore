@@ -7,3 +7,6 @@
 *.xml
 *.iml
 test.js
+other/currying.js
+ts/s.js
+ts/t.js
