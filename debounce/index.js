@@ -1,3 +1,9 @@
+/**
+ * 防抖
+ * @param {*} wait 
+ * @param {*} func 
+ * @param {*} immediate 
+ */
 function debounce(wait, func, immediate) {
     let timer = null;
     return function anonymous(...arg) {
