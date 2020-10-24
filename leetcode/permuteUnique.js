@@ -22,7 +22,7 @@ var permuteUnique = function (nums) {
             }
             path.push(item);
             indexs[i] = true;
-            prev = helper(path);
+            helper(path);
             indexs[i] = false;
             path.pop();
         }
