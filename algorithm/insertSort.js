@@ -3,18 +3,18 @@ function insertSort(arr){
 
     var key;
 
-    for(let j = 1; j < arr.length ; j++){
+    for(let i = 1; i < arr.length ; i++){
         
-        var i = j - 1;
+        var j = i - 1;
 
-        key = arr[j];
+        key = arr[i];
         
-        while(i >= 0 && arr[i] > key){
+        while(j >= 0 && arr[j] > key){
           
-            arr[i+1] = arr[i];
-            i --;
+            arr[j+1] = arr[j];
+            j --;
         };
-        arr[i + 1] = key;
+        arr[j + 1] = key;
     }
 
     return arr;

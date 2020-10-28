@@ -32,19 +32,15 @@ var preorderTraversal = function (root) {
  * 迭代--出入栈
  */
 var preorderTraversalIteration = function (root) {
-    const stacks = [];
-    const result = [];
+    if (!root) return [];
+    let stacks = [root];
     let tree = root;
-    while (tree || stacks.length !== 0) {
-        if (!tree.isView) {
-            result.push(tree.val);
-            tree.isView = true;
-            stacks.push(tree);
-            tree = tree.left || stacks.pop();
-        } else {
-            tree = tree.right || stacks.pop();
-        }
+    const result = [];
+    while(stacks.length > 0) {
+        tree = stacks.pop();
+        result.push(tree.val);
+        tree.right && stacks.push(tree.right);
+        tree.left && stacks.push(tree.left);
     }
     return result;
 };
-

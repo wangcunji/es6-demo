@@ -10,17 +10,14 @@ class getArea{
 }
 
 let HandleObj = {
-    get(target,key,receiver) {
+    get(target, key, receiver) {
         if(key[0]==='_'){
             throw new Error("this is a private variable");
         }
-        return target[key];
+        return Reflect.get(target, key, receiver);
     },
-    set(target,key,value,receiver) {
-        console.log(target);
-        console.log(key);
-        console.log(value);
-        target[key] = value;
+    set(target, key, value, receiver) {
+        return Reflect.set(target, key, value, receiver);
     }
 };
 
@@ -28,9 +25,9 @@ let testObj = {
     name: 'Job'
 };
 
-let proxyObj = new Proxy(new getArea(10,10),HandleObj);
+let proxyObj = new Proxy(new getArea(10,10), HandleObj);
 
-var areaCalc = new Proxy(new getArea(10,10),HandleObj);
+var areaCalc = new Proxy(new getArea(10,10), HandleObj);
 console.log(areaCalc.muliCalc);
 console.log(JSON.stringify(areaCalc));
 

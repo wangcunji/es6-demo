@@ -36,15 +36,15 @@ var postorderTraversalIteration = function (root) {
     const stacks = [];
     let tree = root;
     if (tree) stacks.push(tree);
-    while (stacks.length !== 0) {
-        tree = stacks.pop();
-        if (!tree.isView) {
-            tree.isView = true;
-            stacks.push(tree);
-            tree.right && stacks.push(tree.right);
-            tree.left && stacks.push(tree.left);
+    while (stack.length) {
+        tree = stack.pop();
+        if (tree) {
+            stack.push(tree);
+            stack.push(null);
+            tree.right && stack.push(tree.right);
+            tree.left && stack.push(tree.left);
         } else {
-            result.push(tree.val);
+            result.push(stack.pop().val);
         }
     }
     return result;
