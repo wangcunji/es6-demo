@@ -6,7 +6,7 @@
  */
 function debounce(wait, func, immediate) {
     let timer = null;
-    return function anonymous(...arg) {
+    return function (...arg) {
         timer ? clearTimeout(timer) : null;
         if (immediate) {
             if (!timer) func.call(this, ...arg);

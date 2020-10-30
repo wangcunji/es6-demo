@@ -3,9 +3,10 @@ function selectSort(arr) {
     var temp,minIndex;
     for (var i = 0; i < len - 1; i++) {
         minIndex = i;
+        // 从剩余数组中找到最小的
         for (var j = i + 1; j < len; j++) {
             if (arr[j] < arr[minIndex]) {
-                minIndex = j;
+                minIndex = j; //如果当前的值小于之前选择的最小值，将minIndex设为当前索引-j
             }
         };
         temp = arr[i];
